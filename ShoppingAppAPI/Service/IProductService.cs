@@ -12,5 +12,6 @@ namespace Service
         Task<Product> GetProductIsExisted(string productName);
         Task<IEnumerable<Product>> GetProductByCategoryID(int id);
         Task CreateNewProduct(ProductParam productParam);
+        Task UpdateProduct(ProductUpdateParam productParam);
     }
 }

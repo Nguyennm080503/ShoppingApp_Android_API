@@ -30,11 +30,11 @@ namespace DAO
             }
         }
 
-        public override async Task<IEnumerable<Cart>> GetAllAsync()
-        {
-            var context = new ShoppingAppDBContext();
-            return await context.Account.Where(x => x.RoleID != 0).OrderByDescending(x => x.AccountID).ToListAsync();
-        }
+        //public override async Task<IEnumerable<Cart>> GetAllAsync()
+        //{
+        //    var context = new ShoppingAppDBContext();
+        //    return await context.Account.Where(x => x.RoleID != 0).OrderByDescending(x => x.AccountID).ToListAsync();
+        //}
 
 
 

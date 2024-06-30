@@ -56,6 +56,10 @@ namespace DAO
             modelBuilder.Entity<Product>()
                .HasKey(p => p.ProductID);
 
+            modelBuilder.Entity<Product>()
+                .Property(a => a.ProductID)
+                .ValueGeneratedOnAdd()
+                .UseIdentityColumn();
 
             modelBuilder.Entity<Category>()
                .HasKey(cate => cate.CategoryID);

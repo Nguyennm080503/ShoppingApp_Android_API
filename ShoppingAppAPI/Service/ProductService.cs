@@ -46,5 +46,10 @@ namespace Service
         {
             return await productRepository.GetProductIsExisted(productName);
         }
+
+        public async Task UpdateProduct(ProductUpdateParam productParam)
+        {
+            await productRepository.UpdateProduct(productParam);
+        }
     }
 }

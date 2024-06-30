@@ -10,7 +10,7 @@ namespace DTOS.Product
     {
         public string Name { get; set; }
         public double Price { get; set; }
-        public byte[] Image { get; set; }
+        public byte[] Image { get; set; }  // This will be filled after decoding
         public string Description { get; set; }
         public int CategoryID { get; set; }
     }
