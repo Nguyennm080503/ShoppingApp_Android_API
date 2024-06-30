@@ -34,7 +34,7 @@ namespace ShoppingAppAPI.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new ApiResponseStatus(400, ex.Message));
+                return BadRequest(new ApiResponseStatus(400, "Have some error when excute function!"));
             }
         }
 
