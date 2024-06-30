@@ -2,6 +2,7 @@
 using DTOS.Product;
 using Repository;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,29 +23,116 @@ namespace Service
             await productRepository.CreateNewProduct(productParam);
         }
 
-        public async Task<IEnumerable<Product>> GetAllAsync()
+        public async Task<IEnumerable<ProductView>> GetAllAsync()
         {
-            return await productRepository.GetAllAsync();
+            List<ProductView> productViews = new List<ProductView>();
+
+            var products = await productRepository.GetAllAsync(); ;
+
+            foreach (var product in products)
+            {
+                ProductView item = new ProductView()
+                {
+                    CategoryID = product.CategoryID,
+                    CategoryName = product.Category.Name,
+                    Name = product.Name,
+                    Price = product.Price,
+                    ProductID = product.ProductID,
+                    Status = product.Status,
+                    Description = product.Description,
+                    Image = Encoding.UTF8.GetString(product.Image),
+                };
+
+                productViews.Add(item);
+            }
+
+            return productViews;
         }
 
-        public async Task<IEnumerable<Product>> GetAllProductAsync()
+        public async Task<IEnumerable<ProductView>> GetAllProductAsync()
         {
-            return await productRepository.GetAllProductAsync();
+            List<ProductView> productViews = new List<ProductView>();
+
+            var products = await productRepository.GetAllProductAsync();
+
+            foreach (var product in products)
+            {
+                ProductView item = new ProductView()
+                {
+                    CategoryID = product.CategoryID,
+                    CategoryName = product.Category.Name,
+                    Name = product.Name,
+                    Price = product.Price,
+                    ProductID = product.ProductID,
+                    Status = product.Status,
+                    Description = product.Description,
+                    Image = Encoding.UTF8.GetString(product.Image),
+                };
+
+                productViews.Add(item);
+            }
+
+            return productViews;
         }
 
-        public async Task<IEnumerable<Product>> GetProductByCategoryID(int id)
+        public async Task<IEnumerable<ProductView>> GetProductByCategoryID(int id)
         {
-            return await productRepository.GetProductByCategoryID(id);
+            List<ProductView> productViews = new List<ProductView>();
+
+            var products = await productRepository.GetProductByCategoryID(id);
+
+            foreach (var product in products)
+            {
+                ProductView item = new ProductView()
+                {
+                    CategoryID = product.CategoryID,
+                    CategoryName = product.Category.Name,
+                    Name = product.Name,
+                    Price = product.Price,
+                    ProductID = product.ProductID,
+                    Status = product.Status,
+                    Description = product.Description,
+                    Image = Encoding.UTF8.GetString(product.Image),
+                };
+
+                productViews.Add(item);
+            }
+
+            return productViews;
         }
 
-        public async Task<Product> GetProductID(int id)
+        public async Task<ProductView> GetProductID(int id)
         {
-            return await productRepository.GetProductID(id);
+            var product = await productRepository.GetProductID(id);
+            ProductView item = new ProductView()
+            {
+                CategoryID = product.CategoryID,
+                CategoryName = product.Category.Name,
+                Name = product.Name,
+                Price = product.Price,
+                ProductID = product.ProductID,
+                Status = product.Status,
+                Description = product.Description,
+                Image = Encoding.UTF8.GetString(product.Image),
+            };
+            return item;
         }
 
-        public async Task<Product> GetProductIsExisted(string productName)
+        public async Task<ProductView> GetProductIsExisted(string productName)
         {
-            return await productRepository.GetProductIsExisted(productName);
+            var product = await productRepository.GetProductIsExisted(productName);
+            ProductView item = new ProductView()
+            {
+                CategoryID = product.CategoryID,
+                CategoryName = product.Category.Name,
+                Name = product.Name,
+                Price = product.Price,
+                ProductID = product.ProductID,
+                Status = product.Status,
+                Description = product.Description,
+                Image = Encoding.UTF8.GetString(product.Image),
+            };
+            return item;
         }
     }
 }
