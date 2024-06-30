@@ -68,5 +68,10 @@ namespace Repository
             cart.TotalBill = updateTotalCart.TotalBill;
             await CartDao.Instance.UpdateAsync(cart);
         }
+
+        public async Task<IEnumerable<Cart>> GetAllCart()
+        {
+            return await CartDao.Instance.GetAllCart();
+        }
     }
 }
