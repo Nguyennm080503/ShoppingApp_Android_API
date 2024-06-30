@@ -56,11 +56,11 @@ namespace ShoppingAppAPI.Controllers
             {
                 var products = await productService.GetAllProductAsync();
                 return Ok(products);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return BadRequest(new ApiResponseStatus(400, "Have some error when excute function!"));
             }
-            
         }
 
         [HttpGet("detail/{id}")]

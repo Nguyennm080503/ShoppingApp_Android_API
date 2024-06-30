@@ -1,10 +1,6 @@
 ﻿using BussinessObject;
+using DTOS.Enum;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAO
 {
@@ -30,30 +26,28 @@ namespace DAO
             }
         }
 
-        //public override async Task<IEnumerable<Cart>> GetAllAsync()
-        //{
-        //    var context = new ShoppingAppDBContext();
-        //    return await context.Account.Where(x => x.RoleID != 0).OrderByDescending(x => x.AccountID).ToListAsync();
-        //}
-
-
-
-        public async Task<Account> GetAccountLogin(string username, string password)
-        {
+        public async Task<IEnumerable<Cart>> GetAllCartByAccount(int accountID) 
+        { 
             var context = new ShoppingAppDBContext();
-            return await context.Account.FirstOrDefaultAsync(x => x.Username.Equals(username) && x.Password.Equals(password));
+            return await context.Cart.Where(x => x.AccountID == accountID && x.Status != (int)CartEnum.PENDING).OrderByDescending(x => x.CartID).ToListAsync();
         }
 
-        public async Task<Account> GetAccountById(int id)
+        public async Task<Cart> GetCartNewOrderID()
         {
             var context = new ShoppingAppDBContext();
-            return await context.Account.FirstOrDefaultAsync(x => x.AccountID.Equals(id));
+            return await context.Cart.OrderByDescending(x => x.CartID).FirstOrDefaultAsync();
         }
 
-        public async Task<Account> GetUsernameExisted(string username)
+        public async Task<Cart> GetCartByOrderID(int orderID)
         {
             var context = new ShoppingAppDBContext();
-            return await context.Account.FirstOrDefaultAsync(x => x.Username.Equals(username));
+            return await context.Cart.FirstOrDefaultAsync(x => x.CartID.Equals(orderID));
+        }
+
+        public async Task<Cart> GetCartPendingByOrderID(int accountID)
+        {
+            var context = new ShoppingAppDBContext();
+            return await context.Cart.FirstOrDefaultAsync(x => x.AccountID.Equals(accountID) && x.Status == (int)CartEnum.PENDING);
         }
     }
 }

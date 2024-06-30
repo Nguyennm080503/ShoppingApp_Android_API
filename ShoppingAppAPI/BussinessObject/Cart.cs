@@ -9,7 +9,7 @@ namespace BussinessObject
         public Account Account { get; set; }
         public double TotalBill { get; set; }
         public DateTime DateOrder { get; set; }
-        public string Addresss { get; set; }
+        public string? Addresss { get; set; }
         public int Status { get; set; }
 
         public IEnumerable<CartDetail> Details { get; set; }
