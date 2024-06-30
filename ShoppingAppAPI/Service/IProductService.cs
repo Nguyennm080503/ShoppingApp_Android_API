@@ -6,7 +6,7 @@ namespace Service
 {
     public interface IProductService
     {
-        Task<IEnumerable<Product>> GetAllAsync();
+        Task<IEnumerable<ProductView>> GetAllAsync();
         Task<IEnumerable<ProductView>> GetAllProductAsync();
         Task<ProductView> GetProductID(int id);
         Task<ProductView> GetProductIsExisted(string productName);
