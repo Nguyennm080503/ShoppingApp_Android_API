@@ -119,5 +119,12 @@ namespace ShoppingAppAPI.Controllers
                 return BadRequest(new ApiResponseStatus(400, "Have some error when excute function!"));
             }
         }
+
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllCart()
+        {
+            var cart = await cartService.GetAllCart();
+            return Ok(cart);
+        }
     }
 }
