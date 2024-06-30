@@ -32,8 +32,6 @@ namespace DAO
             return await context.Cart.Where(x => x.AccountID == accountID && x.Status != (int)CartEnum.PENDING).OrderByDescending(x => x.CartID).ToListAsync();
         }
 
-
-
         public async Task<Cart> GetCartNewOrderID()
         {
             var context = new ShoppingAppDBContext();

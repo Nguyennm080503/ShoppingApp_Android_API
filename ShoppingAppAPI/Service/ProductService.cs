@@ -134,5 +134,10 @@ namespace Service
             };
             return item;
         }
+
+        public async Task UpdateProduct(ProductUpdateParam productParam)
+        {
+            await productRepository.UpdateProduct(productParam);
+        }
     }
 }
