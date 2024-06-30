@@ -25,6 +25,11 @@ namespace Repository
             return await ProductDao.Instance.GetAllAsync();
         }
 
+        public async Task<IEnumerable<Product>> GetAllProductAsync()
+        {
+            return await ProductDao.Instance.GetAllProductAsync();
+        }
+
         public async Task<IEnumerable<Product>> GetProductByCategoryID(int id)
         {
             return await ProductDao.Instance.GetProductByCategoryID(id);

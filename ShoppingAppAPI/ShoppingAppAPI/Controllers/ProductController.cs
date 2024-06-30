@@ -46,6 +46,13 @@ namespace ShoppingAppAPI.Controllers
             return Ok(products);
         }
 
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllProduct()
+        {
+            var products = await productService.GetAllProductAsync();
+            return Ok(products);
+        }
+
         [HttpGet("detail/{id}")]
         public async Task<IActionResult> GetProductByID(int id)
         {

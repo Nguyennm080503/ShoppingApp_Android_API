@@ -32,6 +32,12 @@ namespace DAO
             return await context.Product.Include(x => x.Category).Where(x => x.Status == 0).OrderByDescending(x => x.ProductID).ToListAsync();
         }
 
+        public async Task<IEnumerable<Product>> GetAllProductAsync()
+        {
+            var context = new ShoppingAppDBContext();
+            return await context.Product.Include(x => x.Category).OrderByDescending(x => x.ProductID).ToListAsync();
+        }
+
 
         public async Task<Product> GetProductID(int id)
         {

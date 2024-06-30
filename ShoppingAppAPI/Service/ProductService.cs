@@ -27,6 +27,11 @@ namespace Service
             return await productRepository.GetAllAsync();
         }
 
+        public async Task<IEnumerable<Product>> GetAllProductAsync()
+        {
+            return await productRepository.GetAllProductAsync();
+        }
+
         public async Task<IEnumerable<Product>> GetProductByCategoryID(int id)
         {
             return await productRepository.GetProductByCategoryID(id);
