@@ -26,6 +26,11 @@ namespace Service
             await cartRepository.DeleteCart(orderID);
         }
 
+        public async Task<IEnumerable<Cart>> GetAllCart()
+        {
+            return await cartRepository.GetAllCart();
+        }
+
         public async Task<IEnumerable<Cart>> GetAllCartByAccount(int accountID)
         {
            return await cartRepository.GetAllCartByAccount(accountID);

@@ -6,6 +6,7 @@ namespace Service
     public interface ICartService
     {
         Task<IEnumerable<Cart>> GetAllCartByAccount(int accountID);
+        Task<IEnumerable<Cart>> GetAllCart();
         Task<Cart> GetCartNewOrderID();
         Task<Cart> GetCartByOrderID(int orderID);
         Task<Cart> GetCartPendingByOrderID(int accountID);
