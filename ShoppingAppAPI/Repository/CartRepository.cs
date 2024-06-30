@@ -58,7 +58,7 @@ namespace Repository
         public async Task UpdateStatusCart(StatusCart statusCart)
         {
             var cart = await CartDao.Instance.GetCartByOrderID(statusCart.CartID);
-            cart.Status = statusCart.Status
+            cart.Status = statusCart.Status;
             await CartDao.Instance.UpdateAsync(cart);
         }
 
