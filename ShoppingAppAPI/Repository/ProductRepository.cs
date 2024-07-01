@@ -50,7 +50,6 @@ namespace Repository
             Product product = await ProductDao.Instance.GetProductID(productParam.ProductID);
             product.Name = productParam.Name;
             product.Price = productParam.Price;
-            product.Image = productParam.Image;
             product.Description = productParam.Description;
             product.CategoryID = productParam.TypeID;
             product.Status = productParam.Status;

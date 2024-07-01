@@ -77,7 +77,7 @@ namespace ShoppingAppAPI.Controllers
             return Ok(products);
         }
 
-        [HttpPut("update/{id}")]
+        [HttpPut("update")]
         public async Task<IActionResult> UpdateProduct(ProductUpdateParam productParam)
         {
             try
