@@ -2,12 +2,11 @@
 {
     public class ProductUpdateParam
     {
-        public int ProductID;
-        public string Name;
-        public double Price;
-        public byte[] Image;
-        public string Description;
-        public int TypeID;
-        public int Status;
+        public int ProductID { get; set; }
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public string Description { get; set; }
+        public int TypeID { get; set; }
+        public int Status { get; set; }
     }
 }
