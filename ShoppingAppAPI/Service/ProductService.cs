@@ -40,7 +40,7 @@ namespace Service
                     ProductID = product.ProductID,
                     Status = product.Status,
                     Description = product.Description,
-                    Image = Encoding.UTF8.GetString(product.Image),
+                    Image = Convert.ToBase64String(product.Image),
                 };
 
                 productViews.Add(item);
@@ -66,7 +66,7 @@ namespace Service
                     ProductID = product.ProductID,
                     Status = product.Status,
                     Description = product.Description,
-                    Image = Encoding.UTF8.GetString(product.Image),
+                    Image = Convert.ToBase64String(product.Image),
                 };
 
                 productViews.Add(item);
@@ -92,7 +92,7 @@ namespace Service
                     ProductID = product.ProductID,
                     Status = product.Status,
                     Description = product.Description,
-                    Image = Encoding.UTF8.GetString(product.Image),
+                    Image = Convert.ToBase64String(product.Image),
                 };
 
                 productViews.Add(item);
@@ -113,7 +113,7 @@ namespace Service
                 ProductID = product.ProductID,
                 Status = product.Status,
                 Description = product.Description,
-                Image = Encoding.UTF8.GetString(product.Image),
+                Image = Convert.ToBase64String(product.Image),
             };
             return item;
         }
@@ -130,7 +130,7 @@ namespace Service
                 ProductID = product.ProductID,
                 Status = product.Status,
                 Description = product.Description,
-                Image = Encoding.UTF8.GetString(product.Image),
+                Image = Convert.ToBase64String(product.Image),
             };
             return item;
         }

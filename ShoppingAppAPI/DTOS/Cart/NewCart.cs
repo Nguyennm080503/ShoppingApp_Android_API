@@ -10,6 +10,6 @@ namespace DTOS.Cart
     {
         public int AccountID { get; set; }
         public double TotalBill { get; set; }
-        public string Addresss { get; set; }
+        public string? Addresss { get; set; }
     }
 }

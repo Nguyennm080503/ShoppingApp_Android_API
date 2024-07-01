@@ -69,7 +69,7 @@ namespace ShoppingAppAPI.Controllers
             return Ok(sum);
         }
 
-        [HttpPost("updae")]
+        [HttpPost("update")]
         public async Task<IActionResult> UpdateQuantityReOrder(UpdateQuantity updateQuantity)
         {
             try

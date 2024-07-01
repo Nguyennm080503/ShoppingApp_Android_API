@@ -8,7 +8,6 @@ namespace DTOS.Cart
 {
     public class UpdateTotalCart
     {
-        public int AccountID { get; set; }
-        public double TotalBill { get; set; }
+        public int CartID { get; set; }
     }
 }

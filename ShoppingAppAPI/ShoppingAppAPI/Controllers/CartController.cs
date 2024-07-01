@@ -71,6 +71,10 @@ namespace ShoppingAppAPI.Controllers
         public async Task<IActionResult> GetCartPendingByOrderID(int accountID)
         {
             var cart = await cartService.GetCartPendingByOrderID(accountID);
+            if(cart == null)
+            {
+                return NotFound("Cart not found.");
+            }
             return Ok(cart);
         }
 

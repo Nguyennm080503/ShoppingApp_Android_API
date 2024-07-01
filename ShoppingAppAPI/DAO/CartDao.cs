@@ -44,12 +44,17 @@ namespace DAO
             return await context.Cart.FirstOrDefaultAsync(x => x.CartID.Equals(orderID));
         }
 
+        public async Task<Cart> GetCartPendingByOrderIDToUpdateSum(int cartID)
+        {
+            var context = new ShoppingAppDBContext();
+            return await context.Cart.FirstOrDefaultAsync(x => x.CartID.Equals(cartID) && x.Status == (int)CartEnum.PENDING);
+        }
+
         public async Task<Cart> GetCartPendingByOrderID(int accountID)
         {
             var context = new ShoppingAppDBContext();
             return await context.Cart.FirstOrDefaultAsync(x => x.AccountID.Equals(accountID) && x.Status == (int)CartEnum.PENDING);
         }
-
         public async Task<IEnumerable<Cart>> GetAllCart()
         {
             var context = new ShoppingAppDBContext();
