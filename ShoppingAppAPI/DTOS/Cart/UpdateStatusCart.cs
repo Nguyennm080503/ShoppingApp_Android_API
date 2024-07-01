@@ -9,6 +9,6 @@ namespace DTOS.Cart
     public class UpdateStatusCart
     {
         public int CartID { get; set; }
-        public string Addresss { get; set; }
+        public string Address { get; set; }
     }
 }

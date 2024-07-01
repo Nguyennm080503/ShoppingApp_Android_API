@@ -49,9 +49,9 @@ namespace Repository
         public async Task UpdateStatusCartFinal(UpdateStatusCart statusCart)
         {
             var cart = await CartDao.Instance.GetCartByOrderID(statusCart.CartID);
-            cart.Addresss = statusCart.Addresss;
+            cart.Addresss = statusCart.Address;
             cart.DateOrder = DateTime.Now;
-            cart.Status = (int)CartEnum.ORDER_SUCCESS;
+            cart.Status = (int)CartEnum.SUCCESS;
             await CartDao.Instance.UpdateAsync(cart);
         }
 
@@ -64,8 +64,9 @@ namespace Repository
 
         public async Task UpdateTotalCart(UpdateTotalCart updateTotalCart)
         {
-            var cart = await CartDao.Instance.GetCartPendingByOrderID(updateTotalCart.AccountID);
-            cart.TotalBill = updateTotalCart.TotalBill;
+            var cart = await CartDao.Instance.GetCartPendingByOrderIDToUpdateSum(updateTotalCart.CartID);
+            var totalCar = await CartDetailDao.Instance.SumTotalPriceInOrder(updateTotalCart.CartID);
+            cart.TotalBill = totalCar + 2;
             await CartDao.Instance.UpdateAsync(cart);
         }
 
