@@ -53,8 +53,10 @@ namespace Repository
             product.Description = productParam.Description;
             product.CategoryID = productParam.TypeID;
             product.Status = productParam.Status;
+            product.Image = productParam.Image;
 
-            await ProductDao.Instance.UpdateAsync(product);
+
+            await ProductDao.Instance.UpdateProductAsycn(product);
         }
     }
 }
