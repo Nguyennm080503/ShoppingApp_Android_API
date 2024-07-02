@@ -56,5 +56,24 @@ namespace DAO
             var context = new ShoppingAppDBContext();
             return await context.Product.Include(x => x.Category).Where(x => x.Status == 0 && x.CategoryID == id).OrderByDescending(x => x.ProductID).ToListAsync();
         }
+
+        public async Task<bool> UpdateProductAsycn(Product product)
+        {
+            try
+            {
+                using (var _context = new ShoppingAppDBContext())
+                {
+                    _context.Entry(product).State = EntityState.Modified;
+                    await _context.SaveChangesAsync();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it appropriately
+                Console.WriteLine($"Error updating entity: {ex.Message}");
+                return false;
+            }
+        }
     }
 }

@@ -20,6 +20,9 @@ public static class ApplicationServicesExtensions
 
         services.AddScoped<ICartDetailRepository, CartDetailRepository>();
         services.AddScoped<ICartDetailService, CartDetailService>();
+        
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<ICategoryService, CategoryService>();
 
         return services;
 
