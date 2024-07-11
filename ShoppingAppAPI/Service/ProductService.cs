@@ -121,18 +121,23 @@ namespace Service
         public async Task<ProductView> GetProductIsExisted(string productName)
         {
             var product = await productRepository.GetProductIsExisted(productName);
-            ProductView item = new ProductView()
+            if(product != null)
             {
-                CategoryID = product.CategoryID,
-                CategoryName = product.Category.Name,
-                Name = product.Name,
-                Price = product.Price,
-                ProductID = product.ProductID,
-                Status = product.Status,
-                Description = product.Description,
-                Image = Convert.ToBase64String(product.Image),
-            };
-            return item;
+                ProductView item = new ProductView()
+                {
+                    CategoryID = product.CategoryID,
+                    CategoryName = product.Category.Name,
+                    Name = product.Name,
+                    Price = product.Price,
+                    ProductID = product.ProductID,
+                    Status = product.Status,
+                    Description = product.Description,
+                    Image = Convert.ToBase64String(product.Image),
+                };
+                return item;
+            }
+            return null;
+            
         }
 
         public async Task UpdateProduct(ProductUpdateParam productParam)

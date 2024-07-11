@@ -48,7 +48,9 @@ namespace DAO
         public async Task<Product> GetProductIsExisted(string productName)
         {
             var context = new ShoppingAppDBContext();
-            return await context.Product.FirstOrDefaultAsync(x => x.Name.Equals(productName));
+            return await context.Product
+                .Include(x => x.Category)
+                .FirstOrDefaultAsync(x => x.Name.Equals(productName));
         }
 
         public async Task<IEnumerable<Product>> GetProductByCategoryID(int id)
